@@ -4,6 +4,11 @@ Script to filter info of the dataset
 
 import pandas as pd 
 import click 
+class Film:
+    def _init_(self, title, year, tickets_sold):
+        self.title = title
+        self.year = year
+        self.tickets_sold = tickets_sold
 
 @click.command()
 @click.option('--title', prompt='Enter film title', help='The title of the film')
