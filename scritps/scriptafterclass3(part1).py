@@ -24,7 +24,16 @@ class Film:
 @click.option('--tickets_sold', prompt='Enter tickets sold', type=int, help='Number of tickets sold for the film')
 @click.option('--ticket_price', prompt='Enter ticket price', type=float, help='Price of each movie ticket')
 
-def main(title, year, tickets_sold, ticket_price)
+def main(title, year, tickets_sold, ticket_price):
+    try:
+        film = Film(title, year, tickets_sold)
+        gross_profit = film.calculate_profit(ticket_price)
+        if gross_profit is not None:
+            print(f"{film.title} released in {film.year} with {film.tickets_sold} tickets sold.")
+            print(f"Gross profit: ${gross_profit:.2f}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
 
 
 if _name_ == '_main_':               
